@@ -1,0 +1,332 @@
+
+
+:root{
+
+    /* light theme colors */
+    --veryLightGray: hsl(0, 0%, 98%);
+    --veryLightGrayishBlue: hsl(236, 33%, 92%);
+    --lightthemeGrayishBlue1: hsl(233, 11%, 84%);
+    --lightthemeGrayishBlue2: hsl(236, 9%, 61%);
+    --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+    
+     
+    /* dark theme colors */
+
+
+  --veryDarkBlue: hsl(235, 21%, 11%);
+  --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --darkthemeDarkGrayishBlue: hsl(234, 39%, 85%);
+  --darkthemeGrayishBluehover: hsl(236, 33%, 92%);
+  --darkthemeGrayishBlue: hsl(234, 11%, 52%);
+  --veryDarkGrayishBlue1: hsl(233, 14%, 35%);
+  --veryDarkGrayishBlue2: hsl(237, 14%, 26%)
+
+}
+
+
+.lightdesktopbackground{
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    background: url('../Assests/Images/bg-desktop-light.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background;
+    transition-duration: 1s;
+}
+
+
+
+.darkdesktopbackground{
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    background: url('../Assests/Images/bg-desktop-dark.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background;
+    transition-duration: 1s;
+}
+
+
+.light_head_text{
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: .8rem;
+}
+
+.header {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    width: 540px;
+    margin: 3rem auto;
+    justify-content: space-between;
+}
+
+header > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon{
+    animation:spin 1.5s ease-in-out 0.3s;
+}
+
+@keyframes spin{
+    100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+
+.todo_list{
+   list-style-type: none;
+   height: 200px;
+   width: 540px;
+   gap: 0.2rem;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   position: relative;
+   border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+   position: absolute;
+   top:250px;
+   left: 0;
+   right: 0;
+   box-shadow:0px 0px 8px -15px #111;
+}
+
+
+
+form{
+   position: absolute;
+   top: 160px;
+   left: 0; 
+   right: 0;
+   display: flex;
+   gap:0.2rem;
+   align-items: center;
+   width: 540px;
+   margin: 0 auto;
+   border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+   transition: background;
+   transition-duration: 0.3s;
+}
+
+
+form.dark {
+    background: var(--veryDarkDesaturatedBlue);
+}
+
+form.light{
+    background: white;
+}
+
+input[type=text]{
+    width: 80%;
+    height: 65px;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    caret-color:hsl(192, 100%, 67%);
+    transition: background;
+    transition-duration: 0.3s;
+}
+
+input.dark{
+    background: var(--veryDarkDesaturatedBlue);
+    color: white;
+}
+
+input.light{
+    background: white;
+    color: black;
+}
+
+
+input:focus{
+    outline: none;
+}
+
+.todo_input{
+  width: 100%;
+  height: 60px;
+  border:  none;
+  padding: 1rem;
+
+}
+.todo_input:focus{
+    outline: none;
+}
+
+.circle{
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: none;
+    cursor: hover;
+    margin-left: 1rem;
+    transition: border;
+    transition-duration: 0.3s;
+}
+
+
+.circledark{
+    border: 1.5px solid var(--VeryDarkGrayishBlue); 
+}
+
+.circlelight{
+    border: 1.5px solid var(--veryLightGrayishBlue);
+}
+
+
+.list_div{
+    display: flex;
+    align-items: center;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    transition: background;
+    transition-duration: 0.3s;
+}
+
+p{
+    margin-left: 0.8rem;
+}
+
+li:first-child{
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+}
+
+.listlightborder{
+    border-bottom: 1px solid var(--veryLightGrayishBlue)
+}
+
+.listdarkborder{
+    border-bottom: 1px solid var(--VeryDarkGrayishBlue)
+}
+
+
+.todo_dark{
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.todo_light{
+    background-color: white;
+}
+
+.todolighttext{
+   color: var(--veryDarkDesaturatedBlue)
+}
+
+.tododarktext{
+   color: var(--lightthemeGrayishBlue1);
+}
+
+
+
+
+.todoCheckBox{
+ -webkit-appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transform: border;
+  transition-duration: 0.3s;
+}
+
+.checkboxlightborder {
+    border: 1.5px solid var(--veryLightGrayishBlue);
+}
+
+.checkboxdarkborder {
+    border: 1.5px solid var(--VeryDarkGrayishBlue);
+}
+
+.todoCheckBox:checked{
+    background: url('../Assests/Images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+}
+
+.todoCheckBox:checked:hover{
+    border: none;
+    background: url('../Assests/Images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.todo_Done {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.delete_btn{
+    border: none;
+    margin-right: 1rem;
+    background: none;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 620px) {
+
+    .lightdesktopbackground{
+    background-image: url('../Assests/Images/bg-mobile-light.jpg');    
+    background-size: cover ;
+    background-position: center;
+    height: 200px;
+    }
+
+    .darkdesktopbackground{
+    background-image: url('../Assests/Images/bg-mobile-dark.jpg');    
+    background-size: cover ;
+    background-position: center;
+    height: 200px;
+        }
+
+    .header{
+        width: 90%;
+        margin: 2rem auto;
+    }
+
+    .light_head_text{
+        font-size: 1.5rem;
+    }
+
+    .todo_container{
+        transform: translateY(-80%);
+        width: 90%;
+        height: 50px;
+    }
+
+     .todo_input {
+         height: 40px;
+         transform: translateY(5%);
+    }
+ 
+    form{
+         width: 90%;
+         top: 100px;
+    }
+
+    input{
+        height: 55px;
+    }
+    
+    .todo_list{ 
+         width: 90%;
+         top: 170px;
+    }
+   
+}
