@@ -67,8 +67,13 @@
 header > button {
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: pointer;    
 }
+
+header > button:focus {
+    outline: none !important
+}
+
 
 .icon{
     animation:spin 1.5s ease-in-out 0.3s;
@@ -241,6 +246,8 @@ li:first-child{
   transform: border;
   transition-duration: 0.3s;
 }
+
+.todoCheckBox:focus { outline: none !important;}
 
 .checkboxlightborder {
     border: 1.5px solid var(--veryLightGrayishBlue);
