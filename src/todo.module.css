@@ -232,9 +232,6 @@ li:first-child{
    color: var(--lightthemeGrayishBlue1);
 }
 
-
-
-
 .todoCheckBox{
  -webkit-appearance: none;
   height: 22px;
@@ -271,8 +268,6 @@ li:first-child{
     background-position: center;
 }
 
-
-
 .todo_Done {
     text-decoration: line-through;
     opacity: 0.5;
@@ -283,6 +278,10 @@ li:first-child{
     margin-right: 1rem;
     background: none;
     cursor: pointer;
+}
+
+.mobile_table_delete_btn{
+    display: none;
 }
 
 
@@ -316,18 +315,14 @@ li:first-child{
         width: 90%;
         height: 50px;
     }
-
-     .todo_input {
-         height: 40px;
-         transform: translateY(5%);
-    }
  
     form{
          width: 90%;
          top: 100px;
     }
 
-    input{
+    
+    input[type=text]{
         height: 55px;
     }
     
@@ -335,5 +330,32 @@ li:first-child{
          width: 90%;
          top: 170px;
     }
-   
+
+    .delete_btn{
+        display: none;
+    }
+
+    .mobile_table_delete_btn{
+        display: block;
+        border: none;
+        background: none;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
 }
+
+@media screen and (min-width: 620px) and (max-width: 1000px) {
+
+    .delete_btn {
+        display: none;
+    }
+
+    .mobile_table_delete_btn{
+        display: block;
+        border: none;
+        background: none;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+
+    }

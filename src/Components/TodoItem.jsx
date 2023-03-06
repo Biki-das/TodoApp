@@ -28,7 +28,9 @@ function TodoItem() {
      {showdeleteBtn && <button className={styles.delete_btn}>
         <img src="../Assests/Images/icon-cross.svg"/>
      </button>}
-    
+     <button className={styles.mobile_table_delete_btn}>
+       <img src="../Assests/Images/icon-cross.svg"/>
+     </button>
     </li>
   )
 }

@@ -19,4 +19,5 @@ body{
   background-color: hsl(236, 33%, 92%);
   transition: background;
   transition-duration: 0.3s;
+  -webkit-tap-highlight-color: transparent;
 }
