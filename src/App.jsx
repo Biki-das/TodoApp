@@ -3,11 +3,19 @@ import Header from './Components/Header'
 import Form from './Components/Form'
 import TodoList from './Components/TodoList'
 import './index.css'
-import TodoItem from './Components/TodoItem'
 
 
 
 export const ThemeContext = createContext()
+
+const todoFilters = {
+  "All" : () => true,
+  "Active" : () => !completed,
+  "Completed" : () => completed,
+}
+
+export const FilterType = Object.keys(todoFilters)
+
   
 function App() {
   

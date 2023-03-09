@@ -1,4 +1,3 @@
-import { useState } from "react"
 import style from  '../todo.module.css'
 import {useContext} from 'react'
 import {ThemeContext} from '../App'

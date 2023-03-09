@@ -85,16 +85,13 @@ header > button:focus {
 
 .todo_list{
    list-style-type: none;
-   height: 200px;
    width: 540px;
    gap: 0.2rem;
    justify-content: center;
    align-items: center;
    margin: 0 auto;
    position: relative;
-   border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-   position: absolute;
-   top:250px;
+   border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;  
    left: 0;
    right: 0;
    box-shadow:0px 0px 8px -15px #111;
@@ -200,6 +197,7 @@ li{
 
 p{
     margin-left: 0.8rem;
+    cursor: pointer;
 }
 
 li:first-child{
@@ -244,7 +242,6 @@ li:first-child{
   transition-duration: 0.3s;
 }
 
-.todoCheckBox:focus { outline: none !important;}
 
 .checkboxlightborder {
     border: 1.5px solid var(--veryLightGrayishBlue);
@@ -254,6 +251,10 @@ li:first-child{
     border: 1.5px solid var(--VeryDarkGrayishBlue);
 }
 
+.todoCheckBox:hover{
+    border: 2px solid hsl(192, 100%, 67%);
+}
+
 .todoCheckBox:checked{
     background: url('../Assests/Images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
     background-repeat: no-repeat;
@@ -261,12 +262,14 @@ li:first-child{
     border: none;
 }
 
+
 .todoCheckBox:checked:hover{
-    border: none;
     background: url('../Assests/Images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
     background-repeat: no-repeat;
     background-position: center;
+    border: none;
 }
+
 
 .todo_Done {
     text-decoration: line-through;
@@ -284,6 +287,91 @@ li:first-child{
     display: none;
 }
 
+.list_container{
+    position: absolute;
+    top: 250px;
+    left: 0;
+    right: 0;
+}
+
+.todo_info{
+    width: 540px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.todo_info_lightbg{
+   background: white;
+}
+
+.todo_info_darkbg{
+   background: var(--veryDarkDesaturatedBlue);
+}
+
+.todo_item_count_text{
+   font-size: 0.8rem;
+}
+
+.todo_item_count_text_dark{
+    color: var(--VeryDarkGrayishBlue);
+}
+
+.todo_item_count_text_light {
+    color: var(--lightthemeGrayishBlue2)
+}
+
+.action_btn_container{
+    display: flex;
+    gap: 1.2rem;
+}
+.mobile_actionbtn_container{
+    display: none;
+}
+
+.action_btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: color;
+    transition-duration: 0.3s;
+}
+
+.dark:hover{
+    color: var(--veryLightGray);
+}
+
+.light:hover{
+    color: var(--veryDarkDesaturatedBlue)
+}
+
+.delete_action_btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition-duration: 0.3s;
+    margin-right: 1rem;
+}
+
+.btn_dark{
+    color: var(--VeryDarkGrayishBlue)
+}
+
+.btn_light{
+    color: var(--lightthemeGrayishBlue2) 
+}
+
+.action_btn:focus{
+    color: #5677be;
+}
+
 
 @media screen and (max-width: 620px) {
 
@@ -299,7 +387,7 @@ li:first-child{
     background-size: cover ;
     background-position: center;
     height: 200px;
-        }
+    }
 
     .header{
         width: 90%;
@@ -310,10 +398,12 @@ li:first-child{
         font-size: 1.5rem;
     }
 
-    .todo_container{
-        transform: translateY(-80%);
-        width: 90%;
-        height: 50px;
+    li{
+        height: 55px;
+    }
+
+    .list_container{
+        top: 170px;
     }
  
     form{
@@ -324,11 +414,21 @@ li:first-child{
     
     input[type=text]{
         height: 55px;
+        font-size: 0.8rem;
     }
     
-    .todo_list{ 
+    .todo_list{
          width: 90%;
-         top: 170px;
+    }
+
+    .list_div > p{
+        font-size: 0.8rem;
+    }
+
+   
+    .todo_info{
+        width: 90%;
+        height: 55px;
     }
 
     .delete_btn{
@@ -342,9 +442,28 @@ li:first-child{
         margin-right: 1rem;
         cursor: pointer;
     }
+
+    .mobile_table_delete_btn > img {
+        height: 11px;
+        width: 11px;
+    }
+
+    .action_btn_container{
+        display: none;
+    }
+
+    .mobile_actionbtn_container{
+        display: flex;
+        justify-content: center;
+        gap: 1.1rem;
+        width: 90%;
+        margin: 1rem auto;
+        height: 55px;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    }
 }
 
-@media screen and (min-width: 620px) and (max-width: 1000px) {
+@media screen and (min-width: 620px) and (max-width: 900px) {
 
     .delete_btn {
         display: none;
