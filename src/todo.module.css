@@ -198,6 +198,8 @@ li{
 p{
     margin-left: 0.8rem;
     cursor: pointer;
+    transition: opacity;
+    transition-duration: 0.3s;
 }
 
 li:first-child{

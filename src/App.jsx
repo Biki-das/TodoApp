@@ -8,21 +8,25 @@ import './index.css'
 
 export const ThemeContext = createContext()
 export const TodoContext =  createContext()
+export const FilterContext = createContext()
 
-const todoFilters = {
+export const todoFilters = {
   "All" : () => true,
-  "Active" : () => !completed,
-  "Completed" : () => completed,
+  "Active" : (todo) => !todo.completed,
+  "Completed" : (todo) => todo.completed,
 }
 
-export const FilterType = Object.keys(todoFilters)
 
+export const FilterType = Object.keys(todoFilters)
   
+
+
 function App() {
   
   const headerRef = useRef(null)
   const [isDarktheme,setisDarkTheme] = useState(false)
   const [todos,setTodos] = useState([])
+  const [currFilter,setCurrFilter] = useState("All")
 
   useEffect(() => {
     window.document.body.style.background = `${isDarktheme ? 'hsl(235, 21%, 11%)' : 'hsl(236, 33%, 92%)'}`
@@ -48,10 +52,12 @@ function App() {
     <>
     <ThemeContext.Provider value={isDarktheme}>
     <TodoContext.Provider value={{todos,setTodos}}>
+     <FilterContext.Provider value={{currFilter,setCurrFilter}}>
     <Header headerRef={headerRef} theme={isDarktheme} setTheme={setisDarkTheme}  toggleTheme={toggleTheme}/>
     <Form getTodos={getTodos}/>
     <TodoList>
     </TodoList>
+    </FilterContext.Provider>
     </TodoContext.Provider>
     </ThemeContext.Provider>
     </>
