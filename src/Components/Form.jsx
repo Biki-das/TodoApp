@@ -1,12 +1,12 @@
 import style from  '../todo.module.css'
-import {useContext} from 'react'
+import {useContext,useState} from 'react'
 import {ThemeContext} from '../App'
 
 
 
-const Form = () => {
+const Form = ({getTodos}) => {
 const themeValue = useContext(ThemeContext)
-
+const [inpValue,setInpValue] = useState('')
 
 function Circle() {
     return(
@@ -15,11 +15,20 @@ function Circle() {
     )
 }
 
+function handleFormSubmission(e) {
+  e.preventDefault()
+  getTodos(inpValue,setInpValue)
+}
+
+function handleInputEvent(e){
+    setInpValue(e.target.value)
+}
+
    return(
     <div>
-    <form className={themeValue ? style.dark : style.light}>
+    <form onSubmit={(e) => {handleFormSubmission(e)}} className={themeValue ? style.dark : style.light}>
         <Circle/>   
-        <input className={themeValue ? style.dark : style.light} type="text" placeholder="Create a new todo..." required/>
+        <input className={themeValue ? style.dark : style.light} type="text" placeholder="Create a new todo..." required onChange={(e) => {handleInputEvent(e)}} value={inpValue}/>
     </form>
     </div>
    )

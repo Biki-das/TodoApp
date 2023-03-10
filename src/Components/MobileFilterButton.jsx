@@ -11,7 +11,7 @@ function MobileFilterButton() {
         <div className={`${styles.mobile_actionbtn_container} ${themeValue ?  styles.todo_info_darkbg : styles.todo_info_lightbg}`}>
              {FilterType.map((type) => {
                 return(
-                    <button className={`${styles.action_btn} ${themeValue ? styles.btn_dark  : styles.btn_light} ${themeValue ? styles.dark : styles.light } `}>{type}</button>
+                    <button key={type} className={`${styles.action_btn} ${themeValue ? styles.btn_dark  : styles.btn_light} ${themeValue ? styles.dark : styles.light } `}>{type}</button>
                 )
              })}
         </div>

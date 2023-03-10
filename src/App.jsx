@@ -7,6 +7,7 @@ import './index.css'
 
 
 export const ThemeContext = createContext()
+export const TodoContext =  createContext()
 
 const todoFilters = {
   "All" : () => true,
@@ -32,14 +33,26 @@ function App() {
     setisDarkTheme(!isDarktheme)
    }
 
+   function getTodos(inpValue,setInpValue) {
+    const newTodo = {
+      todo: inpValue,
+      id: Math.random(),
+      completed: false,
+    }
+    setTodos([...todos,newTodo])
+    setInpValue('')
+   }
+
 
   return (
     <>
     <ThemeContext.Provider value={isDarktheme}>
+    <TodoContext.Provider value={{todos,setTodos}}>
     <Header headerRef={headerRef} theme={isDarktheme} setTheme={setisDarkTheme}  toggleTheme={toggleTheme}/>
-    <Form/>
+    <Form getTodos={getTodos}/>
     <TodoList>
     </TodoList>
+    </TodoContext.Provider>
     </ThemeContext.Provider>
     </>
   )
