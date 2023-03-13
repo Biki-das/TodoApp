@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import styles from "../todo.module.css";
 import TodoItem from "./TodoItem";
 import TodoInfo from "./TodoInfo";
@@ -10,15 +11,36 @@ function TodoList() {
   const { currFilter } = useContext(FilterContext);
   return (
     <div className={styles.list_container}>
-      <ul className={styles.todo_list}>
-        {todos
-          .filter(todoFilters[currFilter])
-          .map(({ todo, completed, id }) => {
-            return (
-              <TodoItem key={id} todo={todo} completed={completed} id={id} />
-            );
-          })}
-      </ul>
+      <DragDropContext>
+        <Droppable droppableId={styles.todo_list}>
+          {(provided) => (
+            <ul
+              className={styles.todo_list}
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {todos
+                .filter(todoFilters[currFilter])
+                .map(({ todo, completed, id },index) => {
+                  return (
+                    <Draggable key={id} draggableId={String(id)} index={index}>
+                        {(provided) => {
+                            return(<TodoItem
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                innerRef={provided.innerRef}
+                                todo={todo}
+                                completed={completed}
+                                id={id}
+                              />)
+                        }}
+                    </Draggable>
+                  );
+                })}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
       <TodoInfo />
       <MobileFilterButton />
     </div>

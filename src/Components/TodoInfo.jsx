@@ -6,11 +6,11 @@ import { FilterType } from "../App";
 
 function TodoInfo() {
   const themeValue = useContext(ThemeContext);
-  const { todos,setTodos } = useContext(TodoContext);
+  const { todos, setTodos } = useContext(TodoContext);
   const { currFilter } = useContext(FilterContext);
 
   function deleteCompleteTodos() {
-    setTodos(todos.filter((todo) => !todo.completed))
+    setTodos(todos.filter((todo) => !todo.completed));
   }
 
   return (
@@ -64,7 +64,9 @@ function TodoInfo() {
         })}
       </div>
       <button
-        onClick={() => {deleteCompleteTodos()}}
+        onClick={() => {
+          deleteCompleteTodos();
+        }}
         className={`${styles.delete_action_btn} ${
           themeValue ? styles.btn_dark : styles.btn_light
         } ${themeValue ? styles.dark : styles.light}`}

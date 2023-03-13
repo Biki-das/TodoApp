@@ -1,8 +1,8 @@
 import styles from "../todo.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState} from "react";
 import { ThemeContext, TodoContext } from "../App";
 
-function TodoItem({ todo, completed, id }) {
+function TodoItem({ todo, completed, id, innerRef,...delegated}) {
   const themeValue = useContext(ThemeContext);
   const [showdeleteBtn, setShowDeleteBtn] = useState(false);
   const { todos, setTodos } = useContext(TodoContext);
@@ -29,8 +29,11 @@ function TodoItem({ todo, completed, id }) {
     setTodos(todos.filter((todo) => todo.id != id));
   }
 
+
   return (
     <li
+      ref={innerRef}
+      {...delegated}
       onMouseOver={showDeleteButton}
       onMouseLeave={hideDeleteButton}
       className={`${themeValue ? styles.todo_dark : styles.todo_light} ${
