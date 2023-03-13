@@ -1,9 +1,10 @@
 import style from "../todo.module.css";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../App";
+import { ThemeContext,FilterContext } from "../App";
 
 const Form = ({ getTodos }) => {
   const themeValue = useContext(ThemeContext);
+  const { setCurrFilter} = useContext(FilterContext)
   const [inpValue, setInpValue] = useState("");
 
   function Circle() {
@@ -19,6 +20,7 @@ const Form = ({ getTodos }) => {
   function handleFormSubmission(e) {
     e.preventDefault();
     getTodos(inpValue, setInpValue);
+    setCurrFilter("All")
   }
 
   function handleInputEvent(e) {
