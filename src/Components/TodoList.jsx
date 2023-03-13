@@ -7,11 +7,22 @@ import { TodoContext, FilterContext, todoFilters } from "../App";
 import MobileFilterButton from "./MobileFilterButton";
 
 function TodoList() {
-  const { todos } = useContext(TodoContext);
+  const { todos,setTodos } = useContext(TodoContext);
   const { currFilter } = useContext(FilterContext);
+
+
+  function handleOnDragEnd(result) {
+    if(!result.destination) return
+    const newTodos = [...todos]
+    const [reorderedTodo] = newTodos.splice(result.source.index, 1)
+    newTodos.splice(result.destination.index,0,reorderedTodo)
+    setTodos(newTodos)
+  }
+
+
   return (
     <div className={styles.list_container}>
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={styles.todo_list}>
           {(provided) => (
             <ul
@@ -37,6 +48,7 @@ function TodoList() {
                     </Draggable>
                   );
                 })}
+                {provided.placeholder}
             </ul>
           )}
         </Droppable>
