@@ -463,6 +463,11 @@ li:first-child{
         height: 55px;
         border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
     }
+
+    
+   .todoCheckBox:hover{
+    border: none;
+}
 }
 
 @media screen and (min-width: 620px) and (max-width: 900px) {

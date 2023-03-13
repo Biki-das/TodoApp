@@ -26,6 +26,10 @@ function TodoItem({todo,completed,id}) {
       setTodos(updatedTodos)
     }
 
+    function deleteTodo(id){
+      setTodos(todos.filter(todo => todo.id != id))
+    }
+
 
   return(
     <li onMouseOver={showDeleteButton} onMouseLeave={hideDeleteButton} className={`${themeValue ? styles.todo_dark : styles.todo_light} ${themeValue ? styles.listdarkborder: styles.listlightborder}`}>
@@ -35,10 +39,10 @@ function TodoItem({todo,completed,id}) {
      {todo}
      </p>
      </div> 
-     {showdeleteBtn && <button className={styles.delete_btn}>
+     {showdeleteBtn && <button onClick={() => {deleteTodo(id)}} className={styles.delete_btn}>
         <img src="../Assests/Images/icon-cross.svg"/>
      </button>}
-     <button className={styles.mobile_table_delete_btn}>
+     <button onClick={() => {deleteTodo(id)}} className={styles.mobile_table_delete_btn}>
        <img src="../Assests/Images/icon-cross.svg"/>
      </button>
     </li>
