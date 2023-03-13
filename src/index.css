@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Josefin+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Josefin+Sans:wght@400;700&display=swap");
 
 *,
 ::after,
-::before{
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 18px;
-  font-family: 'Epilogue', sans-serif;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Epilogue", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-html,body,#root{
+html,
+body,
+#root {
   height: 100%;
 }
 
-body{
+body {
   background-color: hsl(236, 33%, 92%);
   transition: background;
   transition-duration: 0.3s;
