@@ -4,3 +4,10 @@ export function getTodoFromLocalStorage() {
     }
     return []
 }
+
+export function getThemeFromLocalStorage() {
+    if(localStorage.getItem("theme") !== null){
+       return JSON.parse(localStorage.getItem("theme"))  
+    }
+    return false
+}
