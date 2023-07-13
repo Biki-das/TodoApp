@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import {useAutoAnimate} from '@formkit/auto-animate/react'
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import styles from "../todo.module.css";
 import TodoItem from "./TodoItem";
@@ -9,6 +10,7 @@ import MobileFilterButton from "./MobileFilterButton";
 function TodoList() {
   const { todos,setTodos } = useContext(TodoContext);
   const { currFilter } = useContext(FilterContext);
+  const [parent, enableAnimations] = useAutoAnimate()
 
 
   function handleOnDragEnd(result) {
@@ -29,6 +31,7 @@ function TodoList() {
               className={styles.todo_list}
               {...provided.droppableProps}
               ref={provided.innerRef}
+              
             >
               {todos
                 .filter(todoFilters[currFilter])

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, createContext } from "react";
 import Header from "./Components/Header";
 import Form from "./Components/Form";
 import TodoList from "./Components/TodoList";
+import {getTodoFromLocalStorage} from './Utils/StorageItem'
 import "./index.css";
 
 export const ThemeContext = createContext();
@@ -16,11 +17,17 @@ export const todoFilters = {
 
 export const FilterType = Object.keys(todoFilters);
 
+
+
 function App() {
   const headerRef = useRef(null);
   const [isDarktheme, setisDarkTheme] = useState(false);
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {return getTodoFromLocalStorage()});
   const [currFilter, setCurrFilter] = useState("All");
+  if(todos.length >= 1){
+  localStorage.setItem("todos",JSON.stringify(todos))
+  }
+ 
 
   useEffect(() => {
     window.document.body.style.background = `${

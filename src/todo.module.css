@@ -444,7 +444,7 @@ li:first-child {
   }
 
   .todoCheckBox:hover {
-    border: none;
+    border: 1px solid;
   }
 }
 
