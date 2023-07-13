@@ -460,4 +460,10 @@ li:first-child {
     margin-right: 1rem;
     cursor: pointer;
   }
+
+  .todoCheckBox:hover {
+    border: none;
+  }
+
+
 }
