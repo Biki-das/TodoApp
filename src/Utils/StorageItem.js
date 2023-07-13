@@ -11,3 +11,10 @@ export function getThemeFromLocalStorage() {
     }
     return false
 }
+
+export function getSelectedFilterFromLocalStorage() {
+    if(localStorage.getItem("filter") !== null){
+        return JSON.parse(localStorage.getItem("filter"))  
+     }
+     return "All"
+}

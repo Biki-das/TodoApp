@@ -353,7 +353,7 @@ li:first-child {
   color: var(--lightthemeGrayishBlue2);
 }
 
-.action_btn:focus {
+.action_btn_active {
   color: #5677be;
 }
 
@@ -448,7 +448,7 @@ li:first-child {
   }
 }
 
-@media screen and (min-width: 620px) and (max-width: 900px) {
+@media screen and (min-width: 300px) and (max-width: 900px) {
   .delete_btn {
     display: none;
   }
@@ -462,8 +462,7 @@ li:first-child {
   }
 
   .todoCheckBox:hover {
-    border: none;
+    border: 1px solid var(--veryLightGrayishBlue);
   }
-
-
+   
 }
