@@ -1,11 +1,16 @@
 import style from "../todo.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect,useRef } from "react";
 import { ThemeContext,FilterContext } from "../App";
 
 const Form = ({ getTodos }) => {
   const themeValue = useContext(ThemeContext);
   const { setCurrFilter} = useContext(FilterContext)
   const [inpValue, setInpValue] = useState("");
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    inputRef.current.focus()
+  },[])
 
   function Circle() {
     return (
@@ -38,6 +43,7 @@ const Form = ({ getTodos }) => {
         <Circle />
         <input
           className={themeValue ? style.dark : style.light}
+          ref={inputRef}
           type="text"
           placeholder="Create a new todo..."
           required
